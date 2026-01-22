@@ -2,17 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 🔒 DESKTOP VIEW LOCK -->
+  <meta name="viewport" content="width=1400">
+
   <title>Vision Academy of Education | Shaping Bright Minds</title>
+
   <style>
     *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
-    body{background-color:#f8f9fb;color:#333;overflow-x:hidden;}
-    header{background:#002855;color:white;padding:12px 30px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.2);}
+    html,body{overflow-x:auto;}
+    body{background-color:#f8f9fb;color:#333;}
+
+    header{
+      background:#002855;color:white;padding:12px 30px;
+      display:flex;justify-content:space-between;align-items:center;
+      position:sticky;top:0;z-index:1000;
+      box-shadow:0 2px 10px rgba(0,0,0,0.2);
+    }
     header h1{font-size:24px;font-weight:600;}
     nav{display:flex;align-items:center;gap:10px;}
-    nav a{color:white;text-decoration:none;margin:0 8px;font-weight:500;font-size:15px;padding:6px 10px;transition:color 0.3s,transform 0.5s;}
+    nav a{
+      color:white;text-decoration:none;margin:0 8px;
+      font-weight:500;font-size:15px;padding:6px 10px;
+      transition:color 0.3s,transform 0.5s;
+    }
     nav a:hover{color:#ffb703;transform:scale(1.05);}
-    .menu-icon{display:none;font-size:28px;cursor:pointer;}
+
+    /* ❌ MOBILE MENU DISABLED */
+    .menu-icon{display:none !important;}
 
     .slider{position:relative;width:100%;height:80vh;overflow:hidden;}
     .slides{display:flex;width:400%;height:100%;animation:slide 16s infinite;}
@@ -24,111 +41,108 @@
       75%{transform:translateX(-300%);}
       100%{transform:translateX(0);}
     }
-    .slider-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:white;text-align:center;text-shadow:2px 2px 10px rgba(0,0,0,0.8);}
-    .slider-text h2{font-size:48px;margin-bottom:15px;animation:fadeIn 2s ease;}
-    .slider-text p{font-size:20px;animation:fadeIn 3s ease;}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
+    .slider-text{
+      position:absolute;top:50%;left:50%;
+      transform:translate(-50%,-50%);
+      color:white;text-align:center;
+      text-shadow:2px 2px 10px rgba(0,0,0,0.8);
+    }
+    .slider-text h2{font-size:48px;margin-bottom:15px;}
+    .slider-text p{font-size:20px;}
 
     section{padding:70px 80px;}
-    section h2{text-align:center;font-size:32px;color:#002855;margin-bottom:30px;text-transform:uppercase;position:relative;}
-    section h2::after{content:"";width:100px;height:4px;background:#ffb703;position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);border-radius:2px;}
-    .about p{text-align:center;font-size:18px;line-height:1.8;max-width:800px;margin:auto;color:#555;}
+    section h2{
+      text-align:center;font-size:32px;color:#002855;
+      margin-bottom:30px;text-transform:uppercase;
+      position:relative;
+    }
+    section h2::after{
+      content:"";width:100px;height:4px;
+      background:#ffb703;position:absolute;
+      bottom:-10px;left:50%;
+      transform:translateX(-50%);
+      border-radius:2px;
+    }
 
-    .subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;text-align:center;margin-top:40px;}
-    .subject{background:#002855;color:white;padding:20px 10px;font-size:15px;border-radius:15px;transition:transform 0.3s,background 0.3s;box-shadow:0 6px 15px rgba(0,0,0,0.1);}
-    .subject:hover{transform:translateY(-8px);background:#004aad;}
+    .about p{
+      text-align:center;font-size:18px;
+      line-height:1.8;max-width:800px;
+      margin:auto;color:#555;
+    }
 
-    .toppers{background:#f1f5fa;border-radius:15px;padding:60px 40px;margin-top:40px;}
-    .toppers h3{text-align:center;color:#002855;font-size:26px;margin-bottom:25px;}
+    .subjects{
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      gap:20px;text-align:center;margin-top:40px;
+    }
+    .subject{
+      background:#002855;color:white;
+      padding:20px 10px;font-size:15px;
+      border-radius:15px;
+      box-shadow:0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .toppers{background:#f1f5fa;border-radius:15px;padding:60px 40px;}
     .topper-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;}
-    .topper{background:white;text-align:center;padding:20px;border-radius:15px;width:200px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;}
-    .topper:hover{transform:translateY(-8px);}
-    .topper img{width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:10px;border:3px solid #002855;}
-    .topper h4{font-size:17px;color:#002855;margin-bottom:5px;}
-    .topper p{font-size:15px;color:#666;}
-
-.topper p:last-child{
-  color:#000;
-  font-weight:bold;
-}
-
+    .topper{
+      background:white;text-align:center;
+      padding:20px;border-radius:15px;
+      width:200px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+    .topper img{
+      width:120px;height:120px;
+      border-radius:50%;object-fit:cover;
+      margin-bottom:10px;border:3px solid #002855;
+    }
 
     .faculty{background:#f8faff;padding:70px 80px;border-radius:15px;}
     .team{display:flex;justify-content:center;flex-wrap:wrap;gap:30px;}
-    .member{text-align:center;background:white;padding:25px;border-radius:15px;width:230px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;}
-    .member:hover{transform:translateY(-5px);}
-    .member img{width:150px;height:150px;border-radius:50%;object-fit:cover;margin-bottom:10px;border:3px solid #002855;}
+    .member{
+      text-align:center;background:white;
+      padding:25px;border-radius:15px;
+      width:230px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+    .member img{
+      width:150px;height:150px;
+      border-radius:50%;object-fit:cover;
+      margin-bottom:10px;border:3px solid #002855;
+    }
 
-    .admissions{text-align:center;padding:70px 20px;background:#f1f5fa;}
-    .form-box{display:flex;justify-content:center;align-items:center;}
-    #feedbackForm{background:#fff;border:3px solid #002855;border-radius:15px;padding:40px;max-width:500px;width:100%;box-shadow:0 5px 15px rgba(0,0,0,0.1);text-align:left;}
-    #feedbackForm label{font-weight:600;display:block;margin-top:15px;margin-bottom:5px;color:#002855;}
-    #feedbackForm input,#feedbackForm select,#feedbackForm textarea{width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:10px;font-size:15px;}
-    #feedbackForm button{width:100%;background:#0d6efd;color:white;border:none;padding:12px;font-size:16px;border-radius:8px;cursor:pointer;margin-top:10px;transition:0.3s;}
-    #feedbackForm button:hover{background:#0b5ed7;}
-    .success{background:#d1e7dd;color:#0f5132;padding:10px;border-radius:6px;text-align:center;margin-top:15px;display:none;}
-    .download-btn{text-align:center;margin-top:15px;display:none;}
-    .download-btn a{background:#198754;color:white;text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600;}
-    .download-btn a:hover{background:#157347;}
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:15px;
+    }
+    .gallery img{
+      width:100%;height:220px;
+      object-fit:cover;border-radius:12px;
+    }
 
-    .activities{background:#f1f5fa;border-radius:15px;padding:60px 40px;}
-    .activity{margin-bottom:40px;}
-    .activity h3{text-align:center;color:#002855;font-size:24px;margin-bottom:15px;}
-    .activity p{text-align:center;font-size:17px;max-width:900px;margin:0 auto 30px;color:#555;}
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
-    .gallery img{width:100%;border-radius:12px;object-fit:cover;height:220px;transition:transform 0.4s;}
-    .gallery img:hover{transform:scale(1.08);}
-
-/* 🔬 Practical Video Cross Layout */
-.practical-cross{
-  display:grid;
-  grid-template-columns:1fr 1.4fr 1fr;
-  grid-template-rows:auto auto auto;
-  gap:15px;
-  align-items:center;
-}
-.practical-cross img,
-.practical-cross video{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:12px;
-}
-.pc-top{grid-column:2;}
-.pc-left{grid-column:1;grid-row:2;}
-.pc-video{grid-column:2;grid-row:2;}
-.pc-right{grid-column:3;grid-row:2;}
-.pc-bottom{grid-column:2;grid-row:3;}
-
-
-    .contact-info{text-align:center;line-height:1.8;font-size:17px;}
-    iframe{border-radius:12px;margin-top:20px;}
-    footer{background:#002855;color:white;text-align:center;padding:25px 10px;font-size:15px;margin-top:40px;}
-
-    @media(max-width:768px){
-      nav{display:none;flex-direction:column;}
-      nav.active{display:flex;}
-      .menu-icon{display:block;}
-      .subjects{grid-template-columns:1fr;}
-      section{padding:50px 30px;}
+    footer{
+      background:#002855;color:white;
+      text-align:center;padding:25px 10px;
+      font-size:15px;margin-top:40px;
     }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <h1>Vision Academy of Education</h1>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav id="navMenu">
-      <a href="#leadership">Leadership</a>
-      <a href="#about">About</a>
-      <a href="#academics">Academics</a>
-      <a href="#admissions">Admissions</a>
-      <a href="#faculty">Faculty</a>
-      <a href="#activities">Activities</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header>
+  <h1>Vision Academy of Education</h1>
+  <nav>
+    <a href="#leadership">Leadership</a>
+    <a href="#about">About</a>
+    <a href="#academics">Academics</a>
+    <a href="#admissions">Admissions</a>
+    <a href="#faculty">Faculty</a>
+    <a href="#activities">Activities</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
   <div class="slider">
     <div class="slides">
