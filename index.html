@@ -105,13 +105,30 @@
     iframe{border-radius:12px;margin-top:20px;}
     footer{background:#002855;color:white;text-align:center;padding:25px 10px;font-size:15px;margin-top:40px;}
 
-    @media(max-width:768px){
-      nav{display:none;flex-direction:column;}
-      nav.active{display:flex;}
-      .menu-icon{display:block;}
-      .subjects{grid-template-columns:1fr;}
-      section{padding:50px 30px;}
-    }
+    /* 
+@media(max-width:768px){
+  nav{display:none;flex-direction:column;}
+  nav.active{display:flex;}
+  .menu-icon{display:block;}
+  .subjects{grid-template-columns:1fr;}
+  section{padding:50px 30px;}
+}
+*/
+/* =====================================
+   AUTO DESKTOP VIEW ON ALL MOBILES
+   (Laptop layout scaled automatically)
+   ===================================== */
+
+@media (max-width: 900px) {
+  body {
+    width: 1280px;              /* laptop base width */
+    transform: scale(calc(100vw / 1280));
+    transform-origin: top left;
+    overflow-x: hidden;
+  }
+}
+
+
   </style>
 </head>
 <body>
