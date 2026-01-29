@@ -346,7 +346,7 @@
     <img src="images/IMG_20260122_133640_817.jpg.jpeg" class="pc-left" alt="Practical Image Left">
 
     <!-- Video Player -->
-    <video id="expVideo" class="pc-video" controls muted loop width="640">
+    <video class="expVideo pc-video" controls muted loop playsinline preload="metadata">
       <source src="images/WhatsApp Video 2026-01-13 at 9.44.41 PM.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -355,24 +355,26 @@
     <img src="images/IMG_20260122_133601_172.jpg.jpeg" class="pc-bottom" alt="Practical Image Bottom">
   </div>
 </div>
-
+	   
 <script>
-// Scroll-based autoplay
-const video = document.getElementById('expVideo');
+document.addEventListener("DOMContentLoaded", () => {
+  const videos = document.querySelectorAll(".expVideo");
+  function checkVideos() {
+    videos.forEach(video => {
+      const rect = video.getBoundingClientRect();
+      const isVisible =
+        rect.top < window.innerHeight * 0.7 &&
+        rect.bottom > window.innerHeight * 0.2;
 
-function checkVideoInView() {
-  const rect = video.getBoundingClientRect();
-  if (rect.top < window.innerHeight && rect.bottom > 0) {
-    if (video.paused) video.play();  // autoplay when visible
-  } else {
-    if (!video.paused) video.pause(); // pause when out of view
+      if (isVisible) video.play().catch(() => {});
+      else video.pause();
+    });
   }
-}
-
-window.addEventListener('scroll', checkVideoInView);
-window.addEventListener('load', checkVideoInView);
+  window.addEventListener("scroll", checkVideos);
+  window.addEventListener("load", checkVideos);
+  checkVideos();
+});
 </script>
-
     
     <div class="activity">
   <h3>🔬 Practical & Experimental Sessions</h3>
@@ -383,7 +385,7 @@ window.addEventListener('load', checkVideoInView);
     <img src="images/DSC_5189.JPG" class="pc-left" alt="Practical Image Left">
 
     <!-- Video Player -->
-    <video id="expVideo" class="pc-video" controls muted loop width="640">
+    <video class="expVideo pc-video" controls muted loop playsinline preload="metadata">
       <source src="images/WhatsApp Video 2026-01-13 at 9.08.15 PM.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -392,24 +394,7 @@ window.addEventListener('load', checkVideoInView);
     <img src="images/DSC_5265.JPG" class="pc-bottom" alt="Practical Image Bottom">
   </div>
 </div>
-
-<script>
-// Scroll-based autoplay
-const video = document.getElementById('expVideo');
-
-function checkVideoInView() {
-  const rect = video.getBoundingClientRect();
-  if (rect.top < window.innerHeight && rect.bottom > 0) {
-    if (video.paused) video.play();  // autoplay when visible
-  } else {
-    if (!video.paused) video.pause(); // pause when out of view
-  }
-}
-
-window.addEventListener('scroll', checkVideoInView);
-window.addEventListener('load', checkVideoInView);
-</script>
-    
+	   
     <h2>Sports & Cultural Activities</h2>
     <div class="activity">
       <h3>🏅 Annual Sports Meet</h3>
