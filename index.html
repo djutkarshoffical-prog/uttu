@@ -153,24 +153,19 @@
 /* ===== MOBILE TOPPERS: 3 UP + 2 CENTER ===== */
 @media (max-width: 768px) {
 
-  .topper-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  .topper-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   /* 🔥 last row center */
     gap: 15px;
-    justify-items: center;
   }
 
-  /* last 2 cards center me */
-  .topper-grid .topper:nth-last-child(2) {
-    grid-column: 1 / span 1;
-  }
-
-  .topper-grid .topper:last-child {
-    grid-column: 2 / span 1;
+  .topper{
+    width: 30%;               /* 3 cards in one row */
+    min-width: 140px;         /* card chhota na ho */
   }
 
 }
-
 
   </style>
 </head>
@@ -272,7 +267,7 @@
         <div class="topper"><img src="images/shrekar-removebg-preview-artguru-removebg-preview.jpg" alt=""><h4>Shreekar Chouriwar</h4><p>Rank 1</p><p><b>81.17%</b></p></div>
         <div class="topper"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c" alt=""><h4>Sangharsh Shende</h4><p>Rank 1</p><p><b>81.17%</b></p></div>
         <div class="topper"><img src="images/tarun-removebg-preview-removebg-preview (1).jpg" alt=""><h4>Varun Salam</h4><p>Rank 1</p><p><b>81.17%</b></p></div>
-        <div class="topper"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt=""><h4>Aditya Salam</h4><p>Rank 1</p><p><b>81.17%</b></p></div>
+        <div class="topper"><img src="images/WhatsApp Image 2026-01-26 at 7.jpg" alt=""><h4>Aditya Salam</h4><p>Rank 1</p><p><b>81.17%</b></p></div>
       </div>
       
     </div>
@@ -519,7 +514,7 @@ window.addEventListener('load', checkVideoInView);
    </div>
 
 
-  <footer>© 2025 Vision Academy of Education | All Rights Reserved</footer>
+  <footer>© 2026 Vision Academy of Education | All Rights Reserved</footer>
 
   <!-- Your entire HTML content here (header, slider, sections, form, etc.) -->
 
